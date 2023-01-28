@@ -13,6 +13,11 @@
 		BA0069B1298436C20044725A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA0069B0298436C20044725A /* Preview Assets.xcassets */; };
 		BA0069B3298436C20044725A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0069B2298436C20044725A /* Persistence.swift */; };
 		BA0069B6298436C20044725A /* knomee2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA0069B4298436C20044725A /* knomee2.xcdatamodeld */; };
+		BA0069C02984375E0044725A /* DictioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0069BF2984375E0044725A /* DictioView.swift */; };
+		BA0069C2298437800044725A /* DictioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0069C1298437800044725A /* DictioModel.swift */; };
+		BA0069C4298440830044725A /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA0069C3298440830044725A /* words.txt */; };
+		BA0069CC29844E3D0044725A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0069CB29844E3D0044725A /* SwiftyJSON.swift */; };
+		BA0069D0298452840044725A /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA0069CF298452840044725A /* words.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		BA0069B2298436C20044725A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		BA0069B5298436C20044725A /* knomee2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = knomee2.xcdatamodel; sourceTree = "<group>"; };
 		BA0069B7298436C20044725A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA0069BF2984375E0044725A /* DictioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictioView.swift; sourceTree = "<group>"; };
+		BA0069C1298437800044725A /* DictioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictioModel.swift; sourceTree = "<group>"; };
+		BA0069C3298440830044725A /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		BA0069CB29844E3D0044725A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		BA0069CF298452840044725A /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +68,12 @@
 			children = (
 				BA0069A9298436C00044725A /* knomee2App.swift */,
 				BA0069AB298436C00044725A /* ContentView.swift */,
+				BA0069BF2984375E0044725A /* DictioView.swift */,
+				BA0069C1298437800044725A /* DictioModel.swift */,
+				BA0069C3298440830044725A /* words.txt */,
+				BA0069CF298452840044725A /* words.json */,
 				BA0069AD298436C20044725A /* Assets.xcassets */,
+				BA0069CB29844E3D0044725A /* SwiftyJSON.swift */,
 				BA0069B2298436C20044725A /* Persistence.swift */,
 				BA0069B7298436C20044725A /* Info.plist */,
 				BA0069B4298436C20044725A /* knomee2.xcdatamodeld */,
@@ -134,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA0069B1298436C20044725A /* Preview Assets.xcassets in Resources */,
+				BA0069D0298452840044725A /* words.json in Resources */,
+				BA0069C4298440830044725A /* words.txt in Resources */,
 				BA0069AE298436C20044725A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,9 +163,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA0069B3298436C20044725A /* Persistence.swift in Sources */,
+				BA0069C02984375E0044725A /* DictioView.swift in Sources */,
 				BA0069B6298436C20044725A /* knomee2.xcdatamodeld in Sources */,
 				BA0069AC298436C00044725A /* ContentView.swift in Sources */,
 				BA0069AA298436C00044725A /* knomee2App.swift in Sources */,
+				BA0069CC29844E3D0044725A /* SwiftyJSON.swift in Sources */,
+				BA0069C2298437800044725A /* DictioModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,7 @@ struct knomee2App: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DictioView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
