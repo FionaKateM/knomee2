@@ -101,7 +101,7 @@ struct DictioView: View {
             visualisedWords.sort()
             wordLocation.append(enteredWord.lowercased())
             wordLocation.sort()
-            
+            updateVisuals()
             endGame()
         } else if visualisedWords.contains(enteredWord.lowercased()) {
             // word has already been guessed
