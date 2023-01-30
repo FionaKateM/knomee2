@@ -10,14 +10,14 @@ import SwiftUI
 struct DictioView: View {
     
     var correctWord = "hello"
+    var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     @State private var enteredWord = ""
     @State var words: [String] = []
     @State var wordColour = Color.black
-    @State var visualisedWords: [String] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    //    @State var guessedWords: [String: Color] = ["a": .black, "b": .black, "c": .black, "d": .black, "e": .black, "f": .black, "g": .black, "h": .black, "i": .black, "j": .black, "k": .black, "l": .black, "m": .black, "n": .black, "o": .black, "p": .black, "q": .black, "r": .black, "s": .black, "t": .black, "u": .black, "v": .black, "w": .black, "x": .black, "y": .black, "z": .black]
-    //    @ObservedObject var visualisedWords = WordModel()
+    @State var visualisedWords: [String] = []
     @State var wordLocation: [String] = []
     @FocusState private var wordInFocus: Bool
+    // min, max, location of correct word
     @State var colourIndices = (0, 26, 500)
     @State var scrollLocation = 0
     
@@ -73,6 +73,11 @@ struct DictioView: View {
                     words = words.sorted()
                 }
                 
+                if visualisedWords.count == 0 {
+                    visualisedWords.append(contentsOf: alphabet)
+                    visualisedWords.sort()
+                }
+                
                 if !wordLocation.contains(correctWord.lowercased()) {
                     wordLocation.append(correctWord.lowercased())
                     colourIndices.2 = wordLocation.firstIndex(of: correctWord.lowercased()) ?? 500
@@ -89,12 +94,15 @@ struct DictioView: View {
     }
     
     func checkWord() {
+        
+        // check word exists
         if !words.contains(enteredWord.lowercased()) {
             // not a valid word
             print("not a valid word")
-            enteredWord = ""
+            // add shake annimation
             wordInFocus = true
             
+        // check if answer is correct
         } else if correctWord.lowercased() == enteredWord.lowercased() {
             print("correct answer")
             visualisedWords.append(enteredWord.lowercased())
@@ -103,14 +111,16 @@ struct DictioView: View {
             wordLocation.sort()
             updateVisuals()
             endGame()
+            
+        // check if word has already been guessed
         } else if visualisedWords.contains(enteredWord.lowercased()) {
             // word has already been guessed
             print("word already guessed")
             wordInFocus = true
+            
+        // correct word and not yet guessed
         } else {
-            // correct word and not guessed yet
             print("valid guess")
-            removeElipses()
             visualisedWords.append(enteredWord.lowercased())
             visualisedWords.sort()
             wordLocation.append(enteredWord.lowercased())
@@ -121,86 +131,78 @@ struct DictioView: View {
         }
     }
     
-    func removeElipses() {
-        // remove "..." and adjust colourIndices appropriateley
-        if let holdingRowLocation = visualisedWords.firstIndex(of: "...") {
-            if holdingRowLocation < colourIndices.0 {
-                // adjust both min and max values
-                colourIndices.0 -= 1
-                colourIndices.1 -= 1
-                visualisedWords.remove(at: holdingRowLocation)
-            } else if holdingRowLocation > colourIndices.1 {
-                // adjust no values
-                visualisedWords.remove(at: holdingRowLocation)
-            } else {
-                // adjust just max value
-                colourIndices.1 -= 1
-                visualisedWords.remove(at: holdingRowLocation)
-            }
-        }
-    }
-    
     func updateVisuals() {
         
-        if let correctIndex = visualisedWords.firstIndex(of: correctWord) {
-            colourIndices.0 = correctIndex + 1
-            colourIndices.1 = correctIndex - 1
-        } else {
-            if wordLocation.firstIndex(of: enteredWord.lowercased()) ?? 1 < wordLocation.firstIndex(of: correctWord.lowercased()) ?? 0 {
-                // Word is earlier than the corect word
-                
-                if let index = visualisedWords.firstIndex(of: enteredWord.lowercased()) {
-                    
-                    // move the screen to view the entered word now in the list
-                    //                scrollLocation = index
-                    
-                    if index > colourIndices.0 {
-                        // Set min to index of entered word as it is a higher min than what is currently set
-                        colourIndices.0 = index
-                    } else {
-                        // entered word is earlier than the previous minimum so the minimum needs + 1 to account for the additional value
-                        colourIndices.0 += 1
-                    }
-                    
-                    // add 1 to the upper boundary as there is now an additional element earlier in the array
-                    colourIndices.1 += 1
-                }
-                
-            } else if wordLocation.firstIndex(of: enteredWord.lowercased()) ?? 0 > wordLocation.firstIndex(of: correctWord.lowercased()) ?? 1 {
-                // set max to index of entered word
-                if let index = visualisedWords.firstIndex(of: enteredWord.lowercased()) {
-                    
-                    // move the screen to view the entered word now in the list
-                    //                scrollLocation = index
-                    
-                    if index < colourIndices.1 {
-                        colourIndices.1 = index
-                    }
-                }
-            }
-            
-            // sets viewing position
-            var position = 0
-            if wordLocation.count < 3 {
-                if let guessedWordLocation = visualisedWords.firstIndex(of: enteredWord.lowercased()) {
-                    print("location of first word: \(guessedWordLocation)")
-                    scrollLocation = guessedWordLocation
-                }
-            } else {
-                position = ((colourIndices.1 - colourIndices.0)/2) + colourIndices.0
-                scrollLocation = position
-            }
-            
-
-            if colourIndices.1 - colourIndices.0 == 1 {
-                // Add extra row if min and max values are next to each other to help with visualising where the word is expected
-                visualisedWords.insert("...", at: colourIndices.0 + 1)
-                
-                // add one to max value to account for additional array entry
-                colourIndices.1 += 1
+        // at this point the checking of the word is complete, and we are tidying up the 'visualised words' array
+        
+        // get the indices needed
+        guard let correctWordIndex = wordLocation.firstIndex(of: correctWord.lowercased()) else {
+            print("cannot find winning word in wordLocation array")
+            return
+        }
+        
+        // remove elipses
+        if let elipsesIndex = visualisedWords.firstIndex(of: "...") {
+            print("removing elipses")
+            visualisedWords.remove(at: elipsesIndex)
+        }
+        
+        
+        // Only contain letters that don't have words guessed yet
+        var temporaryArray = alphabet
+        
+        // remove alphabet from visualised words list
+        visualisedWords = Array(Set(visualisedWords).subtracting(Set(alphabet)))
+        
+        // for each word in the guessed list, remove the first letter from the temporary array
+        for word in visualisedWords {
+            if let index = temporaryArray.firstIndex(of:String(word.prefix(1))) {
+                temporaryArray.remove(at: index)
             }
         }
+        
+        // combine any left over letters with the visualised words array
+        visualisedWords.append(contentsOf: temporaryArray)
+        visualisedWords.sort()
+        
+        // check if new elipses are needed
+        var minWord = ""
+        var maxWord = ""
+        
+        
+        // look for location of correct word
+        if correctWordIndex > 0 {
+            minWord = wordLocation[correctWordIndex-1]
+        }
+        if correctWordIndex < wordLocation.count-1 {
+            maxWord = wordLocation[correctWordIndex+1]
+        }
+        
+        if let minWordLocation = visualisedWords.firstIndex(of: minWord) {
+            colourIndices.0 = minWordLocation
+            print("min word location: \(colourIndices.0)")
+            print("word location array:\(wordLocation)")
+        }
+        
+        if let maxWordLocation = visualisedWords.firstIndex(of: maxWord) {
+            colourIndices.1 = maxWordLocation
+            print("max word location: \(colourIndices.1)")
+            print("word location array:\(wordLocation)")
+        }
+        
+        
+        // TODO fix this!
+        if let index = visualisedWords.firstIndex(of: correctWord.lowercased()) {
+                colourIndices.0 = index
+                colourIndices.1 = index
+            
+        } else if colourIndices.1 - colourIndices.0 == 1 {
+            visualisedWords.insert("...", at: colourIndices.0 + 1)
+            colourIndices.1 += 1
+        }
+    
     }
+    
 }
 
 struct DictioView_Previews: PreviewProvider {
@@ -209,6 +211,17 @@ struct DictioView_Previews: PreviewProvider {
     }
 }
 
-//class WordModel: ObservableObject {
-//    @Published var dict: [String: Color] = ["a": .black, "b": .black, "c": .black, "d": .black, "e": .black, "f": .black, "g": .black, "h": .black, "i": .black, "j": .black, "k": .black, "l": .black, "m": .black, "n": .black, "o": .black, "p": .black, "q": .black, "r": .black, "s": .black, "t": .black, "u": .black, "v": .black, "w": .black, "x": .black, "y": .black, "z": .black]
-//}
+// word exists
+    // check if it is in 'words' array
+// word already been said
+    // check if it is in 'visualised words' array
+// add word to visualised words
+    // append to visualised words array
+    // append to word location array
+// remove elipses
+    // remove elipses from 'visualised words' array
+// remove un-needed alphabet letters
+    // for each word with length more than 1 in visualised words array, find out first letter then remove that from the array if it exists
+// discover new location of min and max
+    // look at the word either side of the winning word in the 'word location' array and find their positions in 'visualised words' array.
+    // if max - min == 1 then add elipses and update max += 1
