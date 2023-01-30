@@ -61,10 +61,8 @@ struct DictioView: View {
                             
                             
                         }
-                    }
-                    
-                    Spacer()
-                    Spacer()
+                    }.padding()
+    
                 }
             }
             .onAppear {
@@ -88,6 +86,8 @@ struct DictioView: View {
                 }
             }
             .onChange(of: scrollLocation) { newValue in
+                print("scroll location: \(newValue)")
+                print("visualised words array: \(visualisedWords)")
                 proxy.scrollTo(newValue, anchor: .center)
             }
         }
@@ -143,7 +143,6 @@ struct DictioView: View {
         
         // remove elipses
         if let elipsesIndex = visualisedWords.firstIndex(of: "...") {
-            print("removing elipses")
             visualisedWords.remove(at: elipsesIndex)
         }
         
@@ -182,14 +181,10 @@ struct DictioView: View {
         
         if let minWordLocation = visualisedWords.firstIndex(of: minWord) {
             colourIndices.0 = minWordLocation
-            print("min word location: \(colourIndices.0)")
-            print("word location array:\(wordLocation)")
         }
         
         if let maxWordLocation = visualisedWords.firstIndex(of: maxWord) {
             colourIndices.1 = maxWordLocation
-            print("max word location: \(colourIndices.1)")
-            print("word location array:\(wordLocation)")
         }
         
         if let index = visualisedWords.firstIndex(of: correctWord.lowercased()) {
@@ -197,11 +192,22 @@ struct DictioView: View {
                 colourIndices.1 = index
         }
         
-        
-         if colourIndices.1 - colourIndices.0 == 1 {
+        if colourIndices.1 - colourIndices.0 == 1 {
             visualisedWords.insert("...", at: colourIndices.0 + 1)
             colourIndices.1 += 1
         }
+
+        // sort scroll location
+        if let enteredWordIndex = visualisedWords.firstIndex(of: enteredWord.lowercased()) {
+            // if the entered word falls outside the current min or max guess then scroll to show the word entered
+            if (enteredWordIndex < colourIndices.0) || (enteredWordIndex > colourIndices.1) || (colourIndices.1 - colourIndices.0 >= 5) {
+                scrollLocation = enteredWordIndex
+            } else {
+                scrollLocation = (colourIndices.1 + colourIndices.0)/2
+            }
+        }
+        
+        
     
     }
     
