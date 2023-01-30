@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DictioView: View {
     
-    var correctWord = "hello"
+    @State var correctWord = ""
     var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     @State private var enteredWord = ""
     @State var words: [String] = []
@@ -26,9 +26,10 @@ struct DictioView: View {
             VStack {
                 HStack {
                     Spacer()
-                    TextField("Enter word", text: $enteredWord)
+                    TextField("Enter your word...", text: $enteredWord)
                         .textFieldStyle(.roundedBorder)
                         .textCase(.lowercase)
+                        .disableAutocorrection(true)
                         .padding(.horizontal)
                         .foregroundColor(wordColour)
                         .focused($wordInFocus)
@@ -44,8 +45,8 @@ struct DictioView: View {
                         }
                     Spacer()
                 }
+                
                 HStack {
-                    
                     List(visualisedWords, id: \.self) { word in
                         if let index = visualisedWords.firstIndex(of: word) {
                             if word == correctWord {
@@ -69,6 +70,7 @@ struct DictioView: View {
                 if words.count == 0 {
                     words.append(contentsOf: getWords())
                     words = words.sorted()
+                    getWord()
                 }
                 
                 if visualisedWords.count == 0 {
@@ -78,6 +80,7 @@ struct DictioView: View {
                 
                 if !wordLocation.contains(correctWord.lowercased()) {
                     wordLocation.append(correctWord.lowercased())
+                    wordLocation.sort()
                     colourIndices.2 = wordLocation.firstIndex(of: correctWord.lowercased()) ?? 500
                 }
                 
@@ -206,9 +209,11 @@ struct DictioView: View {
                 scrollLocation = (colourIndices.1 + colourIndices.0)/2
             }
         }
-        
-        
+    }
     
+    func getWord() {
+        correctWord = words.randomElement()?.lowercased() ?? "hello"
+        print("correct word is: \(correctWord)")
     }
     
 }
