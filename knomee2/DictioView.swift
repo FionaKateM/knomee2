@@ -162,13 +162,14 @@ struct DictioView: View {
         }
         
         // combine any left over letters with the visualised words array
-        visualisedWords.append(contentsOf: temporaryArray)
+        if temporaryArray.count > 0 {
+            visualisedWords.append(contentsOf: temporaryArray)
+        }
         visualisedWords.sort()
         
         // check if new elipses are needed
         var minWord = ""
         var maxWord = ""
-        
         
         // look for location of correct word
         if correctWordIndex > 0 {
@@ -177,6 +178,7 @@ struct DictioView: View {
         if correctWordIndex < wordLocation.count-1 {
             maxWord = wordLocation[correctWordIndex+1]
         }
+        
         
         if let minWordLocation = visualisedWords.firstIndex(of: minWord) {
             colourIndices.0 = minWordLocation
@@ -190,13 +192,13 @@ struct DictioView: View {
             print("word location array:\(wordLocation)")
         }
         
-        
-        // TODO fix this!
         if let index = visualisedWords.firstIndex(of: correctWord.lowercased()) {
                 colourIndices.0 = index
                 colourIndices.1 = index
-            
-        } else if colourIndices.1 - colourIndices.0 == 1 {
+        }
+        
+        
+         if colourIndices.1 - colourIndices.0 == 1 {
             visualisedWords.insert("...", at: colourIndices.0 + 1)
             colourIndices.1 += 1
         }
