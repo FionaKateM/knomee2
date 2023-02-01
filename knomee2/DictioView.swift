@@ -68,9 +68,10 @@ struct DictioView: View {
             }
             .onAppear {
                 if words.count == 0 {
-                    words.append(contentsOf: getWords())
+                    words.append(contentsOf: getAllWords())
                     words = words.sorted()
-                    getWord()
+                    correctWord = getWord()
+                    print("correct word is: \(correctWord)")
                 }
                 
                 if visualisedWords.count == 0 {
@@ -89,8 +90,6 @@ struct DictioView: View {
                 }
             }
             .onChange(of: scrollLocation) { newValue in
-                print("scroll location: \(newValue)")
-                print("visualised words array: \(visualisedWords)")
                 proxy.scrollTo(newValue, anchor: .center)
             }
         }
@@ -101,13 +100,11 @@ struct DictioView: View {
         // check word exists
         if !words.contains(enteredWord.lowercased()) {
             // not a valid word
-            print("not a valid word")
             // add shake annimation
             wordInFocus = true
             
         // check if answer is correct
         } else if correctWord.lowercased() == enteredWord.lowercased() {
-            print("correct answer")
             visualisedWords.append(enteredWord.lowercased())
             visualisedWords.sort()
             wordLocation.append(enteredWord.lowercased())
@@ -118,12 +115,10 @@ struct DictioView: View {
         // check if word has already been guessed
         } else if visualisedWords.contains(enteredWord.lowercased()) {
             // word has already been guessed
-            print("word already guessed")
             wordInFocus = true
             
         // correct word and not yet guessed
         } else {
-            print("valid guess")
             visualisedWords.append(enteredWord.lowercased())
             visualisedWords.sort()
             wordLocation.append(enteredWord.lowercased())
@@ -211,10 +206,7 @@ struct DictioView: View {
         }
     }
     
-    func getWord() {
-        correctWord = words.randomElement()?.lowercased() ?? "hello"
-        print("correct word is: \(correctWord)")
-    }
+    
     
 }
 

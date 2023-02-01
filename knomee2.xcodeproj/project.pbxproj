@@ -15,9 +15,21 @@
 		BA0069B6298436C20044725A /* knomee2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA0069B4298436C20044725A /* knomee2.xcdatamodeld */; };
 		BA0069C02984375E0044725A /* DictioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0069BF2984375E0044725A /* DictioView.swift */; };
 		BA0069C2298437800044725A /* DictioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0069C1298437800044725A /* DictioModel.swift */; };
-		BA0069C4298440830044725A /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = BA0069C3298440830044725A /* words.txt */; };
 		BA0069CC29844E3D0044725A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0069CB29844E3D0044725A /* SwiftyJSON.swift */; };
-		BA0069D0298452840044725A /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA0069CF298452840044725A /* words.json */; };
+		BA031E44298959DA003F54A7 /* 13-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E38298959D9003F54A7 /* 13-letter-words.json */; };
+		BA031E45298959DA003F54A7 /* 15-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E39298959D9003F54A7 /* 15-letter-words.json */; };
+		BA031E46298959DA003F54A7 /* 7-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E3A298959D9003F54A7 /* 7-letter-words.json */; };
+		BA031E47298959DA003F54A7 /* 4-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E3B298959DA003F54A7 /* 4-letter-words.json */; };
+		BA031E48298959DA003F54A7 /* 6-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E3C298959DA003F54A7 /* 6-letter-words.json */; };
+		BA031E49298959DA003F54A7 /* 5-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E3D298959DA003F54A7 /* 5-letter-words.json */; };
+		BA031E4A298959DA003F54A7 /* 8-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E3E298959DA003F54A7 /* 8-letter-words.json */; };
+		BA031E4B298959DA003F54A7 /* 11-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E3F298959DA003F54A7 /* 11-letter-words.json */; };
+		BA031E4C298959DA003F54A7 /* 9-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E40298959DA003F54A7 /* 9-letter-words.json */; };
+		BA031E4D298959DA003F54A7 /* 12-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E41298959DA003F54A7 /* 12-letter-words.json */; };
+		BA031E4E298959DA003F54A7 /* 10-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E42298959DA003F54A7 /* 10-letter-words.json */; };
+		BA031E4F298959DA003F54A7 /* 14-letter-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E43298959DA003F54A7 /* 14-letter-words.json */; };
+		BA031E542989B08F003F54A7 /* correct-words.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E532989B08F003F54A7 /* correct-words.json */; };
+		BA031E562989B24F003F54A7 /* correct-words copy.json in Resources */ = {isa = PBXBuildFile; fileRef = BA031E552989B24F003F54A7 /* correct-words copy.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +43,21 @@
 		BA0069B7298436C20044725A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA0069BF2984375E0044725A /* DictioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictioView.swift; sourceTree = "<group>"; };
 		BA0069C1298437800044725A /* DictioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictioModel.swift; sourceTree = "<group>"; };
-		BA0069C3298440830044725A /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		BA0069CB29844E3D0044725A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		BA0069CF298452840044725A /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		BA031E38298959D9003F54A7 /* 13-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "13-letter-words.json"; sourceTree = "<group>"; };
+		BA031E39298959D9003F54A7 /* 15-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "15-letter-words.json"; sourceTree = "<group>"; };
+		BA031E3A298959D9003F54A7 /* 7-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "7-letter-words.json"; sourceTree = "<group>"; };
+		BA031E3B298959DA003F54A7 /* 4-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4-letter-words.json"; sourceTree = "<group>"; };
+		BA031E3C298959DA003F54A7 /* 6-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "6-letter-words.json"; sourceTree = "<group>"; };
+		BA031E3D298959DA003F54A7 /* 5-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "5-letter-words.json"; sourceTree = "<group>"; };
+		BA031E3E298959DA003F54A7 /* 8-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "8-letter-words.json"; sourceTree = "<group>"; };
+		BA031E3F298959DA003F54A7 /* 11-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "11-letter-words.json"; sourceTree = "<group>"; };
+		BA031E40298959DA003F54A7 /* 9-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9-letter-words.json"; sourceTree = "<group>"; };
+		BA031E41298959DA003F54A7 /* 12-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "12-letter-words.json"; sourceTree = "<group>"; };
+		BA031E42298959DA003F54A7 /* 10-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "10-letter-words.json"; sourceTree = "<group>"; };
+		BA031E43298959DA003F54A7 /* 14-letter-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "14-letter-words.json"; sourceTree = "<group>"; };
+		BA031E532989B08F003F54A7 /* correct-words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "correct-words.json"; sourceTree = "<group>"; };
+		BA031E552989B24F003F54A7 /* correct-words copy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "correct-words copy.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +94,8 @@
 				BA0069AB298436C00044725A /* ContentView.swift */,
 				BA0069BF2984375E0044725A /* DictioView.swift */,
 				BA0069C1298437800044725A /* DictioModel.swift */,
-				BA0069C3298440830044725A /* words.txt */,
-				BA0069CF298452840044725A /* words.json */,
+				BA031E5129897718003F54A7 /* Guessing words */,
+				BA031E50298959E0003F54A7 /* dictionary words */,
 				BA0069AD298436C20044725A /* Assets.xcassets */,
 				BA0069CB29844E3D0044725A /* SwiftyJSON.swift */,
 				BA0069B2298436C20044725A /* Persistence.swift */,
@@ -88,6 +112,34 @@
 				BA0069B0298436C20044725A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BA031E50298959E0003F54A7 /* dictionary words */ = {
+			isa = PBXGroup;
+			children = (
+				BA031E3B298959DA003F54A7 /* 4-letter-words.json */,
+				BA031E3D298959DA003F54A7 /* 5-letter-words.json */,
+				BA031E3C298959DA003F54A7 /* 6-letter-words.json */,
+				BA031E3A298959D9003F54A7 /* 7-letter-words.json */,
+				BA031E3E298959DA003F54A7 /* 8-letter-words.json */,
+				BA031E40298959DA003F54A7 /* 9-letter-words.json */,
+				BA031E42298959DA003F54A7 /* 10-letter-words.json */,
+				BA031E3F298959DA003F54A7 /* 11-letter-words.json */,
+				BA031E41298959DA003F54A7 /* 12-letter-words.json */,
+				BA031E38298959D9003F54A7 /* 13-letter-words.json */,
+				BA031E43298959DA003F54A7 /* 14-letter-words.json */,
+				BA031E39298959D9003F54A7 /* 15-letter-words.json */,
+			);
+			path = "dictionary words";
+			sourceTree = "<group>";
+		};
+		BA031E5129897718003F54A7 /* Guessing words */ = {
+			isa = PBXGroup;
+			children = (
+				BA031E532989B08F003F54A7 /* correct-words.json */,
+				BA031E552989B24F003F54A7 /* correct-words copy.json */,
+			);
+			path = "Guessing words";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,10 +200,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA031E47298959DA003F54A7 /* 4-letter-words.json in Resources */,
+				BA031E49298959DA003F54A7 /* 5-letter-words.json in Resources */,
 				BA0069B1298436C20044725A /* Preview Assets.xcassets in Resources */,
-				BA0069D0298452840044725A /* words.json in Resources */,
-				BA0069C4298440830044725A /* words.txt in Resources */,
+				BA031E4B298959DA003F54A7 /* 11-letter-words.json in Resources */,
+				BA031E4E298959DA003F54A7 /* 10-letter-words.json in Resources */,
+				BA031E4A298959DA003F54A7 /* 8-letter-words.json in Resources */,
+				BA031E45298959DA003F54A7 /* 15-letter-words.json in Resources */,
+				BA031E46298959DA003F54A7 /* 7-letter-words.json in Resources */,
+				BA031E562989B24F003F54A7 /* correct-words copy.json in Resources */,
+				BA031E542989B08F003F54A7 /* correct-words.json in Resources */,
+				BA031E4F298959DA003F54A7 /* 14-letter-words.json in Resources */,
 				BA0069AE298436C20044725A /* Assets.xcassets in Resources */,
+				BA031E44298959DA003F54A7 /* 13-letter-words.json in Resources */,
+				BA031E4C298959DA003F54A7 /* 9-letter-words.json in Resources */,
+				BA031E4D298959DA003F54A7 /* 12-letter-words.json in Resources */,
+				BA031E48298959DA003F54A7 /* 6-letter-words.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
